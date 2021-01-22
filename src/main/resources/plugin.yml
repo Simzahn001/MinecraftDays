@@ -1,6 +1,6 @@
 name: MinecraftDays
 version: ${project.version}
-main: me.simzahn.minecraftdays.MinecraftDays
+main: me.simzahn.minecraftdays.Main
 api-version: 1.16
 authors: [Simzahn]
 description: Plugin to manage the MinecraftDays

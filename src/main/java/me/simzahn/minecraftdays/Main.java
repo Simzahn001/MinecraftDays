@@ -1,6 +1,7 @@
 package me.simzahn.minecraftdays;
 
 import me.simzahn.minecraftdays.bossbar.BasicBossbar;
+import me.simzahn.minecraftdays.commands.TestCom;
 import me.simzahn.minecraftdays.listeners.ChunkLoadListener;
 import me.simzahn.minecraftdays.util.Timer;
 import org.bukkit.Bukkit;
@@ -20,6 +21,8 @@ public final class Main extends JavaPlugin {
         timer = new Timer();
         bar = new BasicBossbar();
         bar.start();
+
+        getCommand("test").setExecutor(new TestCom());
 
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new ChunkLoadListener(), this);

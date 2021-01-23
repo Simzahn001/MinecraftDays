@@ -1,8 +1,6 @@
 package me.simzahn.minecraftdays.commands;
 
-import me.simzahn.minecraftdays.Main;
 import me.simzahn.minecraftdays.util.Worldutil;
-import org.bukkit.WorldType;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

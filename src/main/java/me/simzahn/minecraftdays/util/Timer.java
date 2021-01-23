@@ -2,6 +2,7 @@ package me.simzahn.minecraftdays.util;
 
 import me.simzahn.minecraftdays.Main;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -12,6 +13,8 @@ public class Timer {
 
     public void startWithCountdown() {
 
+        if(isRunning) return;
+
         isRunning = true;
         seconds = 61;
 
@@ -19,6 +22,7 @@ public class Timer {
 
             @Override
             public void run() {
+
                 switch (seconds) {
                     case 60:
                         for(Player currentPlayer : Bukkit.getOnlinePlayers()) {
@@ -45,8 +49,8 @@ public class Timer {
                     case 0:
                         for(Player currentPlayer : Bukkit.getOnlinePlayers()) {
                             currentPlayer.sendTitle("§a§lEs geht los!","",  10, 60, 10);
-                            startWithoutCountdown();
                             isRunning = false;
+                            startWithoutCountdown();
                             this.cancel();
                         }
 
@@ -60,6 +64,26 @@ public class Timer {
     }
 
     public void startWithoutCountdown() {
+
+        if (isRunning) return;
+
+        seconds = 3600; //60*60 sec --> an hour
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+
+                if(seconds <= 0) {
+                    for(Player currentPlayer : Bukkit.getOnlinePlayers()) {
+                        currentPlayer.sendActionBar(ChatColor.RED + "§lDie Zeit ist vorbei!");
+                    }
+                }else {
+                    for (Player currentPlayer : Bukkit.getOnlinePlayers()) {
+                        currentPlayer.sendActionBar("§6§l" + seconds/60 + ":" + seconds % 60);
+                    }
+                }
+            }
+        }.runTaskTimer(Main.getPlugin(), 20, 20);
 
     }
 }

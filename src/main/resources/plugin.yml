@@ -8,3 +8,4 @@ description: Plugin to manage the MinecraftDays
 commands:
   test:
     description:
+  challenge:

@@ -1,6 +1,6 @@
 package me.simzahn.minecraftdays.commands;
 
-import me.simzahn.minecraftdays.util.Worldutil;
+import me.simzahn.minecraftdays.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,11 +13,7 @@ public class TestCom implements CommandExecutor {
         if(sender instanceof Player) {
             Player player = (Player) sender;
 
-            if(args.length == 0) {
-                Worldutil.setSpawnBarrier(true);
-            }else {
-                Worldutil.setSpawnBarrier(false);
-            }
+            Main.getTimer().startWithoutCountdown();
 
         }
 

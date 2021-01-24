@@ -42,9 +42,4 @@ public class Worldutil {
             }
         }
     }
-
-    public static void spawnTeleport() {
-
-    }
-
 }

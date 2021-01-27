@@ -5,6 +5,7 @@ import me.simzahn.minecraftdays.commands.ChallengesCom;
 import me.simzahn.minecraftdays.commands.TestCom;
 import me.simzahn.minecraftdays.listeners.AchievementListener;
 import me.simzahn.minecraftdays.listeners.ChunkLoadListener;
+import me.simzahn.minecraftdays.listeners.JoinListener;
 import me.simzahn.minecraftdays.util.Challange;
 import me.simzahn.minecraftdays.util.TeamColor;
 import me.simzahn.minecraftdays.util.Timer;
@@ -13,7 +14,6 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public final class Main extends JavaPlugin {
 
@@ -40,6 +40,7 @@ public final class Main extends JavaPlugin {
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new ChunkLoadListener(), this);
         pluginManager.registerEvents(new AchievementListener(), this);
+        pluginManager.registerEvents(new JoinListener(), this);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class BasicBossbar {
     private int taskID;
     private BossBar bar;
     private int barProgress = 30;
-    private String[] titles = new String[]{"§6§lServer hosted by KRESU24", "§6§lMinecraft Days" };
+    private String[] titles = new String[]{"§6§lServer hosted by " + ChatColor.DARK_PURPLE + "§lvionity", "§6§lMinecraft Days" };
     private int textCounter = 1;
 
     public void start() {

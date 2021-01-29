@@ -3,7 +3,11 @@ package me.simzahn.minecraftdays.util;
 import me.simzahn.minecraftdays.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.block.Barrel;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
@@ -81,6 +85,58 @@ public class Timer {
                         player.sendTitle("§6§lDie Ergebnisse:", "", 10, 100, 10);
                         player.sendActionBar(ChatColor.RED + "§lDie Zeit ist vorbei!");
                     }
+
+                    switch(Main.getChallange()) {
+                        case EMERALD_RACE:
+                            for(TeamColor currentColor : TeamColor.values()) {
+                                if(Bukkit.getWorld("world").getBlockAt(currentColor.getBarrel()).getState() instanceof Barrel) {
+                                    Inventory inv =((Barrel) Bukkit.getWorld("world").getBlockAt(currentColor.getBarrel()).getState()).getInventory();
+                                    ((Barrel) Bukkit.getWorld("world").getBlockAt(currentColor.getBarrel()).getState()).getInventory().clear();
+                                    for(ItemStack currentItem : inv.getContents()) {
+                                        if(currentItem != null) {
+                                            if(currentItem.getType() == Material.EMERALD) {
+                                                Main.getPoints().put(currentColor, Main.getPoints().get(currentColor) + currentItem.getAmount());
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            break;
+                        case ORE_RACE:
+                            for(TeamColor currentColor : TeamColor.values()) {
+                                if(Bukkit.getWorld("world").getBlockAt(currentColor.getBarrel()).getState() instanceof Barrel) {
+                                    Inventory inv =((Barrel) Bukkit.getWorld("world").getBlockAt(currentColor.getBarrel()).getState()).getInventory();
+                                    for(ItemStack currentItem : inv.getContents()) {
+                                        if(currentItem != null) {
+                                            switch(currentItem.getType()) {
+                                                case COAL:
+                                                case REDSTONE:
+                                                    Main.getPoints().put(currentColor, Main.getPoints().get(currentColor) + currentItem.getAmount());
+                                                    break;
+                                                case QUARTZ:
+                                                    Main.getPoints().put(currentColor, Main.getPoints().get(currentColor) + (currentItem.getAmount()*2));
+                                                    break;
+                                                case GOLD_INGOT:
+                                                case IRON_INGOT:
+                                                    Main.getPoints().put(currentColor, Main.getPoints().get(currentColor) + (currentItem.getAmount()*4));
+                                                    break;
+                                                case LAPIS_LAZULI:
+                                                    Main.getPoints().put(currentColor, Main.getPoints().get(currentColor) + (currentItem.getAmount()*8));
+                                                    break;
+                                                case DIAMOND:
+                                                    Main.getPoints().put(currentColor, Main.getPoints().get(currentColor) + (currentItem.getAmount()*64));
+                                                    break;
+                                                case NETHERITE_INGOT:
+                                                    Main.getPoints().put(currentColor, Main.getPoints().get(currentColor) + (currentItem.getAmount()*256));
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            break;
+                    }
+
                     new BukkitRunnable() {
                         HashMap<TeamColor, Integer> points = Main.getPoints();
                         @Override
@@ -93,6 +149,12 @@ public class Timer {
 
 
                         Main.setChallange(Challange.NONE);
+                        for(TeamColor currentColor : TeamColor.values()) {
+                            if(Bukkit.getWorld("world").getBlockAt(currentColor.getBarrel()).getState() instanceof Barrel) {
+                                ((Barrel) Bukkit.getWorld("world").getBlockAt(currentColor.getBarrel()).getState()).getInventory().clear();
+                            }
+                        }
+                        TeamColor.spawnTeleport();
                         this.cancel();
 
                 }else {

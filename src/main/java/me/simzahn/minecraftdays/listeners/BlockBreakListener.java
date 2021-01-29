@@ -5,21 +5,16 @@ import me.simzahn.minecraftdays.util.Challange;
 import me.simzahn.minecraftdays.util.TeamColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerAdvancementDoneEvent;
+import org.bukkit.event.block.BlockBreakEvent;
 
-public class AchievementListener implements Listener {
+public class BlockBreakListener implements Listener {
 
     @EventHandler
-    public void onAchievementGet(PlayerAdvancementDoneEvent event) {
-
-        if(Main.getChallange().equals(Challange.RECEPIE_RACE)) {
+    public void onBreak(BlockBreakEvent event) {
+        if(Main.getChallange().equals(Challange.MASTERBREAKERS)) {
             if(TeamColor.getTeam(event.getPlayer()) != null) {
                 Main.getPoints().put(TeamColor.getTeam(event.getPlayer()), Main.getPoints().get(TeamColor.getTeam(event.getPlayer())) + 1);
             }
         }
-
-        System.out.println(Main.getPoints().get(TeamColor.getTeam(event.getPlayer())));
-
     }
-
 }

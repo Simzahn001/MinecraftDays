@@ -4,6 +4,7 @@ import me.simzahn.minecraftdays.bossbar.BasicBossbar;
 import me.simzahn.minecraftdays.commands.ChallengesCom;
 import me.simzahn.minecraftdays.commands.TestCom;
 import me.simzahn.minecraftdays.listeners.AchievementListener;
+import me.simzahn.minecraftdays.listeners.BlockBreakListener;
 import me.simzahn.minecraftdays.listeners.ChunkLoadListener;
 import me.simzahn.minecraftdays.listeners.JoinListener;
 import me.simzahn.minecraftdays.util.Challange;
@@ -41,6 +42,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new ChunkLoadListener(), this);
         pluginManager.registerEvents(new AchievementListener(), this);
         pluginManager.registerEvents(new JoinListener(), this);
+        pluginManager.registerEvents(new BlockBreakListener(), this);
     }
 
     @Override

@@ -3,9 +3,9 @@ package me.simzahn.minecraftdays.util;
 public enum Challange {
 
     NONE(0),
-    ACHIEVEMENT_RACE(1),
+    RECEPIE_RACE(1),
     EMERALD_RACE(2),
-    ORE_RABE(3),
+    ORE_RACE(3),
     MASTERBREAKERS(4),
     MASTERBUILDERS(5),
     TRAVELLER(6),

@@ -1,6 +1,6 @@
 package me.simzahn.minecraftdays.util;
 
-public enum Challange {
+public enum Challenge {
 
     NONE(0),
     RECEPIE_RACE(1),
@@ -12,7 +12,7 @@ public enum Challange {
     MOB_COLLECT(7),
     ITEM_RACE(8);
 
-    Challange(int number) {
+    Challenge(int number) {
         this.number = number;
     }
 

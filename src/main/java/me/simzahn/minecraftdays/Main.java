@@ -7,7 +7,7 @@ import me.simzahn.minecraftdays.listeners.AchievementListener;
 import me.simzahn.minecraftdays.listeners.BlockBreakListener;
 import me.simzahn.minecraftdays.listeners.ChunkLoadListener;
 import me.simzahn.minecraftdays.listeners.JoinListener;
-import me.simzahn.minecraftdays.util.Challange;
+import me.simzahn.minecraftdays.util.Challenge;
 import me.simzahn.minecraftdays.util.TeamColor;
 import me.simzahn.minecraftdays.util.Timer;
 import org.bukkit.Bukkit;
@@ -21,7 +21,7 @@ public final class Main extends JavaPlugin {
     private static Main plugin;
     private BasicBossbar bar;
     private static Timer timer;
-    private static Challange challange = Challange.NONE;
+    private static Challenge challange = Challenge.NONE;
     private static HashMap<TeamColor, Integer> points;
 
     @Override
@@ -58,11 +58,11 @@ public final class Main extends JavaPlugin {
         return timer;
     }
 
-    public static Challange getChallange() {
+    public static Challenge getChallange() {
         return challange;
     }
 
-    public static void setChallange(Challange challange) {
+    public static void setChallange(Challenge challange) {
         Main.challange = challange;
     }
 

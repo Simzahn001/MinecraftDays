@@ -1,7 +1,7 @@
 package me.simzahn.minecraftdays.listeners;
 
 import me.simzahn.minecraftdays.Main;
-import me.simzahn.minecraftdays.util.Challange;
+import me.simzahn.minecraftdays.util.Challenge;
 import me.simzahn.minecraftdays.util.TeamColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,7 +12,7 @@ public class AchievementListener implements Listener {
     @EventHandler
     public void onAchievementGet(PlayerAdvancementDoneEvent event) {
 
-        if(Main.getChallange().equals(Challange.RECEPIE_RACE)) {
+        if(Main.getChallange().equals(Challenge.RECEPIE_RACE)) {
             if(TeamColor.getTeam(event.getPlayer()) != null) {
                 Main.getPoints().put(TeamColor.getTeam(event.getPlayer()), Main.getPoints().get(TeamColor.getTeam(event.getPlayer())) + 1);
             }

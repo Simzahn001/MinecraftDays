@@ -1,6 +1,6 @@
 package me.simzahn.minecraftdays.commands;
 
-import me.simzahn.minecraftdays.util.Challange;
+import me.simzahn.minecraftdays.util.Challenge;
 import me.simzahn.minecraftdays.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -19,7 +19,7 @@ public class ChallengesCom implements CommandExecutor {
                 Main.resetPoints();
                 switch (Integer.parseInt(args[0])) {
                     case 1:
-                        Main.setChallange(Challange.RECEPIE_RACE);
+                        Main.setChallange(Challenge.RECEPIE_RACE);
                         Main.getTimer().startWithCountdown();
                         Bukkit.broadcastMessage(ChatColor.BLUE + "------------------------------");
                         Bukkit.broadcastMessage("");
@@ -32,7 +32,7 @@ public class ChallengesCom implements CommandExecutor {
                         Bukkit.broadcastMessage(ChatColor.BLUE + "------------------------------");
                         break;
                     case 2:
-                        Main.setChallange(Challange.EMERALD_RACE);
+                        Main.setChallange(Challenge.EMERALD_RACE);
                         Main.getTimer().startWithCountdown();
                         Bukkit.broadcastMessage(ChatColor.BLUE + "------------------------------");
                         Bukkit.broadcastMessage("");
@@ -45,7 +45,7 @@ public class ChallengesCom implements CommandExecutor {
                         Bukkit.broadcastMessage(ChatColor.BLUE + "------------------------------");
                         break;
                     case 3:
-                        Main.setChallange(Challange.ORE_RACE);
+                        Main.setChallange(Challenge.ORE_RACE);
                         Main.getTimer().startWithCountdown();
                         Bukkit.broadcastMessage(ChatColor.BLUE + "------------------------------");
                         Bukkit.broadcastMessage("");
@@ -65,7 +65,7 @@ public class ChallengesCom implements CommandExecutor {
                         Bukkit.broadcastMessage("");
                         Bukkit.broadcastMessage(ChatColor.BLUE + "------------------------------");
                     case 4:
-                        Main.setChallange(Challange.MASTERBREAKERS);
+                        Main.setChallange(Challenge.MASTERBREAKERS);
                         Main.getTimer().startWithCountdown();
                         Bukkit.broadcastMessage(ChatColor.BLUE + "------------------------------");
                         Bukkit.broadcastMessage("");

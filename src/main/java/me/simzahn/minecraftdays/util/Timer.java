@@ -148,7 +148,7 @@ public class Timer {
                     }.runTaskLater(Main.getPlugin(), 60);
 
 
-                        Main.setChallange(Challange.NONE);
+                        Main.setChallange(Challenge.NONE);
                         for(TeamColor currentColor : TeamColor.values()) {
                             if(Bukkit.getWorld("world").getBlockAt(currentColor.getBarrel()).getState() instanceof Barrel) {
                                 ((Barrel) Bukkit.getWorld("world").getBlockAt(currentColor.getBarrel()).getState()).getInventory().clear();
